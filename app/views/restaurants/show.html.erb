@@ -1,0 +1,54 @@
+<h1 class="resName">
+    <%= @new_restaurant.name %>
+</h1>
+<h2 class="resAddr">
+  <%= @new_restaurant.address%>
+</h2>
+<div class="lineMeUp">
+  <img class="resImg" src="<%= @new_restaurant.img_url %>" alt="img">
+  <div id="this">
+  </div>
+</div>
+<div class="commentSection">
+  <h4>Comment list:</h4>
+  <% @comments.each do |comment| %>
+  <tb>
+  <p>
+    <%= comment.content %>
+    <p>Author: <%=User.select(:email).where(id: "#{comment.user_id}")[0].email %></p>
+    <% if current_user %>
+        <% if current_user.id == comment.user_id%>
+        <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+          <%= f.submit "Delete"%>
+           <% end %>
+          <% else %>
+    <% end %>
+    <% end %>
+  </p>
+  <% end %>
+  </tb>
+</div>
+<div class="costAndFavorite">
+  <p> Cost for two: $ <%= @new_restaurant.cost %> <br>
+    <% if current_user.present? %>
+
+  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%>  <br>
+</div>
+<div class="leaveAComment">
+  <h3>Leave a comment:</h3>
+  <%= render "comments/comments_form", comment: @comment %>
+  <br>
+</div>
+<div class="topSecretInformation">
+<p class="user_id"><%= current_user.id%></p>
+<p class="rest_id"><%= @new_restaurant.id %></p>
+</div>
+<% end %>
+<div class="topSecretInformation">
+<p id="lat"><%= @new_restaurant.lat%>
+</p>
+<p id="lon"><%= @new_restaurant.lon %>
+</p>
+<p><% @new_restaurant.restaurant_id%>
+
+</div>

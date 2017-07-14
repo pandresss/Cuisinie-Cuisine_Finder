@@ -1,0 +1,10 @@
+<h1 class="resName">
+<%= @newUser_Restaurant.email%>
+<% @restaurants.each do |restaurant| %>
+<tb>
+<p><%= restaurant.name %></p>
+<%= restaurant.address %></p>
+<img src="<%= restaurant.img_url %>" alt=""></p>
+<%= button_to "Remove this restaurant?", restaurants_user_path(restaurant.id), method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
+</tb>
+<% end %>

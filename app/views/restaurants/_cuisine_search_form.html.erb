@@ -1,0 +1,12 @@
+<!-- This is the form for selecting the type of food you want to search by. -->
+<%= form_for(@cuisines_New, :url =>restaurants_path ) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.collection_select(:id,Cuisine.all, :value, :name)%>
+  <%= button_tag "Search" , :type=> 'button' ,:class=> 'click'%>
+
+  <% if current_user.present? %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+<% end %>

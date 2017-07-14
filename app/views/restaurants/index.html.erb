@@ -1,0 +1,78 @@
+<h1 class="wlcm">Welcome to Cuisinie</h1>
+<!-- Main Container -->
+<div id="container" class="flexChild columnParent">
+	<!-- Container Starts   -->
+	<div id="topcolumnParent" class="flexChild columnParent">
+
+		<!--Header -->
+		<div id="headerStart" class="flexChild rowParent">
+
+			<div id="logo" class="flexChild">
+			</div>
+
+			<div id="header" class="flexChild rowParent">
+
+				<div id="conainerholdingLogo" class="flexChild">
+				</div>
+
+				<div id="navBar" class="flexChild selected">
+				</div>
+			</div>
+		</div>
+
+		<!--  Slideshow    -->
+		<div id="slideshow" class="flexChild">
+			<div>
+				<img src="https://b.zmtcdn.com/data/pictures/3/16780333/	dbd5172aeb47f0c0bdc88e4892028cab_featured_v2.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/qNzIyqa.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/L8Wf4vY.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/mxIQMMi.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/fXCARJH.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/Wk9Z9bO.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/wht9Chf.jpg" />
+			</div>
+		</div>
+	</div>
+
+	<!-- Filter and Results    -->
+
+
+	<div class="theSearchBar">
+	<p>Select Your Filters</p>
+		<%= render "cuisine_search_form"%>
+	</div>
+	<div id="bottomColumnParent" class="flexChild columnParent">
+		<div id="bottomrowParent" class="flexChild rowParent">
+			<!--  Filter  -->
+			<div id="filterBar" class="flexChild columnParent">
+				<div id="locationFilter" class="flexChild columnParent">
+					<div id="cuisineFilter" class="flexChild">
+					</div>
+					<div id="priceRange" class="flexChild">
+					</div>
+				</div>
+				<!--  Results   -->
+
+				<div id="filteredResults" class="flexChild columnParent">
+
+					<div id="descResults1" class="flexChild"></div>
+
+				</div>
+			</div>
+
+			<div id="footer" class="flexChild"></div>
+		</div>
+	</div>
+</div>

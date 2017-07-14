@@ -1,0 +1,15 @@
+<%= form_for(@comment) do |f| %>
+  <% if current_user %>
+    <%= f.text_field :author, value: "#{current_user.email}"%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <% else %>
+    <%= f.text_field :author, value: "Anonymous"%>
+  <% end %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_area :content, cols: 80, rows: 15 %>
+  <%= f.hidden_field :restaurant_id, value: @new_restaurant.id %>
+  <%= f.submit %>
+
+<% end %>

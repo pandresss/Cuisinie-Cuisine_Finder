@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cuisinie</title>
+        <%= csrf_meta_tags %>
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEI2xahu1c3KN5YYABaD2c6w8aa7sK4J8&libraries=geometry,places">
+        </script>
+    </head>
+
+    <body>
+        <nav role="navigation">
+          <a href="/" title="Home"><img id="imglogo" src="http://i.imgur.com/oxokbLO.png"></a>
+
+            <ul>
+                <li><%= link_to "Home", restaurants_path %></li>
+                <% if current_user %>
+                <li>
+                  <li> <%= link_to "Favorites", user_path(id: current_user.id) %> </li>
+                    
+                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to "Login",  new_user_session_path %>
+                </li>
+                <% end %>
+            </ul>
+        </nav>
+        <br><br><br><br><br><br>
+
+        <%= render "layouts/flash" %>
+        <div class="theRealPage">
+            <%= yield %>
+        </div>
+    </body>
+</html>

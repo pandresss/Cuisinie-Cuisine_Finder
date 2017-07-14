@@ -1,0 +1,7 @@
+<%= form_for(@restaurants) do |f| %>
+  <% if current_user %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :restaurant_id, value: @restaurants.id %>
+    <%= f.submit "Remove" %>
+      <% end %>
+<% end %>
